@@ -1,5 +1,6 @@
 import { Users, Calendar, Trophy, MapPin, ShoppingBag, Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -7,40 +8,48 @@ const features = [
     title: "Smart Matchmaking",
     description: "AI-powered player matching based on skill level, location, and availability.",
     gradient: "from-primary to-primary/80",
+    link: "/matchmaking",
   },
   {
     icon: Calendar,
     title: "Easy Booking",
     description: "Book grounds and equipment with flexible payment options and instant confirmation.",
     gradient: "from-secondary to-secondary/80",
+    link: "/booking",
   },
   {
     icon: Trophy,
     title: "Tournaments & Leagues",
     description: "Join or host local tournaments with automated rankings and leaderboards.",
     gradient: "from-accent to-accent/80",
+    link: "/tournaments",
   },
   {
     icon: MapPin,
     title: "Location-Based Discovery",
     description: "Find nearby players, grounds, and events with real-time availability.",
     gradient: "from-primary to-secondary",
+    link: "/discovery",
   },
   {
     icon: ShoppingBag,
     title: "Equipment Rental",
     description: "Rent or list sports equipment with insurance options and condition tracking.",
     gradient: "from-secondary to-accent",
+    link: "/equipment",
   },
   {
     icon: Shield,
     title: "Safety First",
     description: "Verified users, secure payments, insurance options, and dispute resolution.",
     gradient: "from-accent to-primary",
+    link: "/",
   },
 ];
 
 const Features = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="features" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -62,7 +71,8 @@ const Features = () => {
             return (
               <Card
                 key={index}
-                className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50 group"
+                className="p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-card border-border/50 group cursor-pointer"
+                onClick={() => navigate(feature.link)}
               >
                 <div
                   className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-glow`}
