@@ -1,11 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Trophy, Users, Calendar, MapPin } from "lucide-react";
+import { Trophy, Users, Calendar, MapPin, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 const Tournaments = () => {
+  const navigate = useNavigate();
   const tournaments = [
     {
       name: "Summer Basketball League",
@@ -42,6 +44,11 @@ const Tournaments = () => {
       
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-6xl mx-auto">
+          <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+          
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Join The{" "}

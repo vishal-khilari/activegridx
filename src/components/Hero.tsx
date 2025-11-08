@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Play, MapPin, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background Elements */}
@@ -33,11 +36,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-gradient-hero shadow-glow text-lg px-8 py-6 group">
+            <Button size="lg" className="bg-gradient-hero shadow-glow text-lg px-8 py-6 group" onClick={() => navigate('/matchmaking')}>
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               Find Players Now
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={() => navigate('/discovery')}>
               Explore Grounds
             </Button>
           </div>

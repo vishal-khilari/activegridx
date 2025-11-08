@@ -1,12 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Users, MapPin, Clock, Trophy } from "lucide-react";
+import { Users, MapPin, Clock, Trophy, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 const Matchmaking = () => {
+  const navigate = useNavigate();
   const nearbyPlayers = [
     { name: "Alex Johnson", sport: "Basketball", skill: "Intermediate", distance: "1.2 km", rating: 4.8, games: 45 },
     { name: "Sarah Chen", sport: "Tennis", skill: "Advanced", distance: "2.5 km", rating: 4.9, games: 78 },
@@ -20,6 +22,11 @@ const Matchmaking = () => {
       
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-6xl mx-auto">
+          <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+          
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Find Your Perfect{" "}

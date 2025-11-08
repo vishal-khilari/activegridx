@@ -1,13 +1,15 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Map from "@/components/Map";
-import { MapPin, Search, Filter } from "lucide-react";
+import { MapPin, Search, Filter, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 const Discovery = () => {
+  const navigate = useNavigate();
   const nearbyLocations = [
     { name: "City Sports Complex", type: "Multi-Sport", distance: "2.1 km", status: "Open Now" },
     { name: "Green Park Courts", type: "Tennis", distance: "1.5 km", status: "Open Now" },
@@ -20,6 +22,11 @@ const Discovery = () => {
       
       <main className="container mx-auto px-4 pt-24 pb-16">
         <div className="max-w-7xl mx-auto">
+          <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+          
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Discover Nearby{" "}
